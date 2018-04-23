@@ -117,12 +117,31 @@ public class RowValueFilter extends FilterBase {
         return filter;
     }
 
+    /**
+     * add by mzy.
+     * Old interface in 0.98.23.
+     *
+     * Filters that dont filter by key value can inherit this implementation that
+     * includes all Cells.
+     *
+     * @inheritDoc
+     */
+    @Override
+    public ReturnCode filterKeyValue(org.apache.hadoop.hbase.Cell ignored) throws IOException {
+        return ReturnCode.INCLUDE;
+    }
+
     @Override
     public boolean hasFilterRow() {
         return true;
     }
 
-    @Override
+    /**
+     * modify by mzy.
+     * Old interface in 0.98.23.
+     *
+     * @Override
+     * */
     public void filterRow(List<KeyValue> row) {
         filterOutRow = (this.comparator.compareTo(row) == 0);
     }

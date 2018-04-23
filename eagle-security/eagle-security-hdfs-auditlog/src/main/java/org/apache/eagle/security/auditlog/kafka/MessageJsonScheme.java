@@ -18,12 +18,12 @@
 
 package org.apache.eagle.security.auditlog.kafka;
 
-import backtype.storm.spout.Scheme;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Values;
+import org.apache.storm.spout.Scheme;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Values;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
-import storm.kafka.StringScheme;
+import org.apache.storm.kafka.StringScheme;
 
 import java.io.IOException;
 import java.util.List;
