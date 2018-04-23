@@ -83,9 +83,7 @@ public class AggregateProtocolEndPoint extends AggregateProtos.AggregateProtocol
         // do nothing
     }
 
-    protected HRegion getCurrentRegion() {
-        return this.env.getRegion();
-    }
+    protected HRegion getCurrentRegion() { return (HRegion)this.env.getRegion(); }
 
     /**
      * <pre>
@@ -98,8 +96,8 @@ public class AggregateProtocolEndPoint extends AggregateProtos.AggregateProtocol
      */
     protected String getLogHeader() {
         HRegion region = this.getCurrentRegion();
-        return LOG.isDebugEnabled() ? String.format("Region-%s", region.getRegionNameAsString()) :
-            String.format("Region-%s,%d", region.getTableDesc().getNameAsString(), region.getRegionId());
+        return LOG.isDebugEnabled() ? String.format("Region-%s", region.getRegionInfo().getRegionNameAsString()/*region.getRegionNameAsString()*/) :
+            String.format("Region-%s,%d", region.getTableDesc().getNameAsString(), region.getRegionInfo().getRegionId()/*region.getRegionId()*/);
     }
 
     protected class InternalReadReport {
