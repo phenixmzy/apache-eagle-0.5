@@ -51,7 +51,8 @@ public class TopologySubmitter {
             props.put("metadata.broker.list", config.getString("dataSinkConfig.brokerList"));
             props.put("serializer.class", config.getString("dataSinkConfig.serializerClass"));
             props.put("key.serializer.class", config.getString("dataSinkConfig.keySerializerClass"));
-            stormConfig.put(KafkaBolt.KAFKA_BROKER_PROPERTIES, props);
+            //stormConfig.put(KafkaBolt.KAFKA_BROKER_PROPERTIES, props);
+            stormConfig.put("kafka.broker.properties", props);
         }
 
         if(config.hasPath("dataSinkConfig.serializerClass")){
