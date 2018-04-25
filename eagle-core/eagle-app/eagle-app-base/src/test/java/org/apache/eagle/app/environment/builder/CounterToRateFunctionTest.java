@@ -17,9 +17,9 @@
 
 package org.apache.eagle.app.environment.builder;
 
-import backtype.storm.task.IOutputCollector;
-import backtype.storm.task.OutputCollector;
-import backtype.storm.tuple.Tuple;
+import org.apache.storm.task.IOutputCollector;
+import org.apache.storm.task.OutputCollector;
+import org.apache.storm.tuple.Tuple;
 import org.apache.eagle.app.utils.ClockWithOffset;
 import org.apache.eagle.app.utils.ManualClock;
 import org.junit.Assert;
@@ -124,6 +124,11 @@ public class CounterToRateFunctionTest {
 
             @Override
             public void fail(Tuple input) {
+
+            }
+
+            @Override
+            public void resetTimeout(Tuple tuple) {
 
             }
 
@@ -257,6 +262,11 @@ public class CounterToRateFunctionTest {
 
             @Override
             public void fail(Tuple input) {
+
+            }
+
+            @Override
+            public void resetTimeout(Tuple tuple) {
 
             }
 

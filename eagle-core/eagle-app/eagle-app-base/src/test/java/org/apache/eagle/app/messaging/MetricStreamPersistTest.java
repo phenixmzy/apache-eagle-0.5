@@ -16,11 +16,11 @@
  */
 package org.apache.eagle.app.messaging;
 
-import backtype.storm.Testing;
-import backtype.storm.task.IOutputCollector;
-import backtype.storm.task.OutputCollector;
-import backtype.storm.tuple.Tuple;
-import backtype.storm.tuple.Values;
+import org.apache.storm.Testing;
+import org.apache.storm.task.IOutputCollector;
+import org.apache.storm.task.OutputCollector;
+import org.apache.storm.tuple.Tuple;
+import org.apache.storm.tuple.Values;
 import com.typesafe.config.Config;
 import org.apache.eagle.app.environment.builder.MetricDescriptor;
 import org.apache.eagle.app.utils.StreamConvertHelper;
@@ -98,6 +98,11 @@ public class MetricStreamPersistTest {
 
             @Override
             public void fail(Tuple input) {
+
+            }
+
+            @Override
+            public void resetTimeout(Tuple tuple) {
 
             }
 
